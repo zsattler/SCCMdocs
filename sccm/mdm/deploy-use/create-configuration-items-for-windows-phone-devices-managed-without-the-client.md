@@ -12,9 +12,10 @@ manager: dougeby
 ms.collection: M365-identity-device-management
 ---
 # How to create configuration items for Windows Phone devices managed without the System Center Configuration Manager client
+
 Use the System Center Configuration Manager**Windows Phone** configuration item to manage settings  for Windows Phone devices that are enrolled in Microsoft Intune or managed on-premises by Configuration Manager.  
   
-### To create a Windows Phone configuration item  
+## Create a Windows Phone configuration item  
   
 1. In the Configuration Manager console, click **Assets and compliance**.  
   
@@ -30,7 +31,7 @@ Use the System Center Configuration Manager**Windows Phone** configuration item 
   
 7. On the **Supported Platforms** page of the wizard, select the specific Windows Phone platforms that will evaluate the configuration item.  
   
-8. On the **Device Settings** page of the wizard, select the settings group that you want to configure. See [Windows Phone configuration item settings reference](#BKMK_Setref) in this topic for details, and then click **Next**.  
+8. On the **Device Settings** page of the wizard, select the settings group that you want to configure. See [Windows Phone configuration item settings reference](#windows-phone-configuration-item-settings-reference) in this topic for details, and then click **Next**.  
   
    > [!TIP]  
    >  If the setting that you want is not listed, select the **Configure additional settings that are not in the default setting groups check box**.  
@@ -288,7 +289,7 @@ Use the System Center Configuration Manager**Windows Phone** configuration item 
 |Setting|More information|  
 |**Blocked apps list**|Select this option if you want to specify a list of apps that users will not be allowed to install.|  
 |**Allowed apps list**|Select this option if you want to specify a list of apps that users are allowed to install.|  
-|**Add**|Adds an app to the selected list. Specify a name of your choice, optionally the app publisher, and the URL to the app in the app store.<br /><br /> To specify the URL, from the Windows Phone Store page, search for the app you want to use.<br /><br /> **Example:** Search the store for the **Skype** app. The URL you use will be http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> For the company portal app, or line of business apps, you do not have to specify a full URL, only the app GUID.|  
+|**Add**|Adds an app to the selected list. Specify a name of your choice, optionally the app publisher, and the URL to the app in the app store.<br /><br /> To specify the URL, from the Windows Phone Store page, search for the app you want to use.<br /><br /> **Example:** Search the store for the **Skype** app. The URL you use will be https://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> For the company portal app, or line of business apps, you do not have to specify a full URL, only the app GUID.|  
 |**Edit**|Let’s you edit the name, publisher and URL of the selected app.|  
 |**Remove**|Deletes the selected app from the list.|  
 |**Import**|Imports a list of apps you have specified in a comma-separated values file. Use the format, application name, publisher, app URL in the file.|  

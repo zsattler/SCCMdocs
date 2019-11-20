@@ -2,14 +2,14 @@
 title: Manage software updates synchronization
 titleSuffix: "Configuration Manager"
 description: "Use these steps to schedule software updates synchronization, manually start software updates synchronization, and monitor software updates synchronization."
-author: aczechowski
 ms.date: 12/20/2018
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: ea8698c4-9df5-4cf5-8b62-ab93115b4769
 manager: dougeby
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 ms.collection: M365-identity-device-management
 ---
 
@@ -74,7 +74,7 @@ The top-level Software Update Point uses WSUS to get information about software 
 
 ### To import an update from the Microsoft Update Catalog
 
-1. Open the WSUS administration console and connect it to the top-level WSUS server in your SCCM hierarchy. 
+1. Open the WSUS administration console and connect it to the top-level WSUS server in your hierarchy.
    - If Internet Explorer isn't the computer's default web browser, temporarily set it as the default.
 2. Click on **Updates** or click your WSUS server's name. 
 3. In the **Actions** pane, select **Import Updates...** which will open a browser window to the [Microsoft Update Catalog](https://catalog.update.microsoft.com).

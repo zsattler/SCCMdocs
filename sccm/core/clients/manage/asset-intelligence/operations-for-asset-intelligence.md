@@ -2,13 +2,13 @@
 title: "Use Asset Intelligence"
 titleSuffix: "Configuration Manager"
 description: "Do common Asset Intelligence tasks in System Center Configuration Manager."
-ms.date: 2/22/2017
+ms.date: 08/30/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
 ms.assetid: e8159bd9-5c2b-4d25-82f9-78fcfd732ba9
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---
@@ -282,7 +282,7 @@ This topic contains information to help you manage typical Asset Intelligence ta
 3.  Select a product name or select multiple product names, to be submitted to System Center Online for categorization. Only uncategorized inventoried software titles can be submitted to System Center Online for categorization. If an inventoried software title has been categorized by an administrator resulting in a user-defined state, you must right-click the inventoried software title, and then click **Revert** to revert the software title to the **Uncategorized** state before it can be submitted to System Center Online for categorization.  
 
     > [!NOTE]  
-    >  Configuration Manager can process up to 100 software titles for categorization at a time. If you select more than 100 software titles, only the first 100 software titles will be processed. You must select the remaining software titles for categorization in batches of less than 100.  
+    >  Configuration Manager can process up to 2000 software titles for categorization at a time. If you select more than 2000 software titles, only the first 2000 software titles will be processed. You must select the remaining software titles for categorization in batches of less than 2000.  
 
     > [!TIP]  
     >  Click the **State** column to sort by the validation state. This lets you see all uncategorized product names and quickly select multiple items to submit for categorization.  

@@ -7,8 +7,8 @@ ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
 ms.assetid: 7def067e-845c-4db3-9d56-fa1dcf2fd7c7
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ROBOTS: NOINDEX
 ms.collection: M365-identity-device-management
@@ -29,7 +29,7 @@ To get the update for version 1706, you must use a service connection point site
 
     -   Another common download issue occurs when proxy server settings prevent downloads from <http://silverlight.dlservice.microsoft.com> and <http://download.microsoft.com>.
 
-For more information about installing updates, see [In-console updates and servicing](/sccm/core/servers/manage/updates#a-namebkmkinconsolea-in-console-updates-and-servicing).
+For more information about installing updates, see [In-console updates and servicing](/sccm/core/servers/manage/updates#bkmk_inconsole).
 
 For information about the versions of the Current Branch, see [Baseline and update versions](/sccm/core/servers/manage/updates#bkmk_Baselines) in [Updates for System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
@@ -93,7 +93,7 @@ For more information, see [Use alerts and the status system for System Center C
 Ensure that file and database replication between sites is operational and current. Delays or backlogs in either can prevent a smooth, successful update.
 For database replication, you can use the Replication Link Analyzer to help resolve issues prior to starting the update.
 
-For more information, see [About the Replication Link Analyzer](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure#BKMK_RLA) in the [Monitor hierarchy and replication infrastructure in System Center Configuration Manager](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure) topic.
+For more information, see [Replication Link Analyzer](/sccm/core/servers/manage/monitor-replication#BKMK_RLA) in the [Monitor database replication](/sccm/core/servers/manage/monitor-replication) topic.
 
 **Install all applicable critical updates for operating systems on computers that host the site, the site database server, and remote site system roles:** 
 Before you install an update for Configuration Manager, install any critical updates for each applicable site system. If an update that you install requires a restart, restart the applicable computers before you start the upgrade.
@@ -154,7 +154,7 @@ For more information about starting and then monitoring the prerequisite check, 
 > When the prerequisite checker runs independently or as part of an update installation, the process updates some product source files that are used for site maintenance tasks. Therefore, after running the prerequisite checker but before installing the update, if you need to perform a site maintenance task, run **Setupwpf.exe** (Configuration Manager Setup) from the CD.Latest folder on the site server.
 
 **Update sites:**   
-You are now ready to start the update installation for your hierarchy. For more information about installing the update, see [Install in-console updates.](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates)
+You are now ready to start the update installation for your hierarchy. For more information about installing the update, see [Install in-console updates.](/sccm/core/servers/manage/install-in-console-updates#bkmk_install).
 
 We recommend that you plan to install the update outside of normal business hours for each site when the process of installing the update and its actions to reinstall site components and site system roles will have the least effect on your business operations.
 
@@ -172,6 +172,6 @@ Review the following actions to take after the update installation is finished.
 
 ## Known issues 
 After you update to version 1706, each time the SMS_Executive starts the following warning status message is created by the SMS_CERTIFICATE_MANAGER:
--	 Microsoft SQL Server reported SQL message 515, severity 16: [23000][515][Microsoft][SQL Server Native Client 11.0][SQL Server]Cannot insert the value NULL into column 'RowVersion', table 'CM_GF1.dbo.AAD_SecretChange_Notify'; column does not allow nulls. INSERT fails.
+-  Microsoft SQL Server reported SQL message 515, severity 16: [23000][515][Microsoft][SQL Server Native Client 11.0][SQL Server]Cannot insert the value NULL into column 'RowVersion', table 'CM_GF1.dbo.AAD_SecretChange_Notify'; column does not allow nulls. INSERT fails.
 
 This message can be ignored.  It occurs when no cloud services were configured for use before updating to version 1706. This issue will be resolved in a future release.

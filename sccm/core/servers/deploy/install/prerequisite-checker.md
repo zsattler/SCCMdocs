@@ -2,13 +2,13 @@
 title: "Prerequisite Checker"
 titleSuffix: "Configuration Manager"
 description: "Learn how to use Prerequisite Checker to identify and fix problems that might block a site or site system role installation."
-ms.date: 3/1/2017
+ms.date: 03/1/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
 ms.assetid: aaf13bb8-4ba2-4bd7-9fac-d36a9d88a1b6
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---

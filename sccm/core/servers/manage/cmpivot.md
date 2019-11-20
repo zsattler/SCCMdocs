@@ -2,7 +2,7 @@
 title: CMPivot for real-time data
 titleSuffix: Configuration Manager
 description: Learn how to use CMPivot in Configuration Manager to query clients in real time.
-ms.date: 04/04/2019
+ms.date: 09/05/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -33,12 +33,6 @@ The following components are required to use CMPivot:
 
 - Upgrade the target devices to the latest version of the Configuration Manager client.  
 
-- Permissions for CMPivot:
-  - **Read** permission on the **SMS Scripts** object
-  - **Run Scripts** permission on the **Collection**
-  - **Read** permission on **Inventory Reports**
-  - The default scope. 
-
 - Target clients require a minimum of PowerShell version 4.
 
 - To gather data for the following entities, target clients require PowerShell version 5.0:  
@@ -47,6 +41,16 @@ The following components are required to use CMPivot:
   - IPConfig
   - SMBConfig
 
+
+- Permissions for CMPivot:
+  - **Read** permission on the **SMS Scripts** object
+  - **Run Scripts** permission on the **Collection**
+    - Alternatively, starting in version 1906, you can use **Run CMPivot** on **Collection**.
+  - **Read** permission on **Inventory Reports**
+  - The default scope.
+
+>[!NOTE]
+> **Run Scripts** is a super set of the **Run CMPivot** permission.
  
 ## Limitations
 
@@ -81,7 +85,7 @@ The following components are required to use CMPivot:
 
      - Click one of the **Entities** to add it to the query string.  
 
-     - The links for **Table Operators**, **Aggregation Functions**, and **Scalar Functions** open language reference documentation in the web browser. CMPivot uses the same query language as [Azure Log Analytics](https://docs.microsoft.com/azure/kusto/query/).  
+     - The links for **Table Operators**, **Aggregation Functions**, and **Scalar Functions** open language reference documentation in the web browser. CMPivot uses the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/kusto/query/).  
 
 3. Keep the CMPivot window open to view results from clients. When you close the CMPivot window, the session is complete.  
 
@@ -116,10 +120,10 @@ The CMPivot window contains the following elements:
 
 5. The query pane is where you build or type a query to run on clients in the collection.  
 
-    - CMPivot uses a subset of the same query language as [Azure Log Analytics](https://docs.microsoft.com/azure/kusto/query/).  
+    - CMPivot uses a subset of the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/kusto/query/).  
 
     - Cut, copy, or paste content in the query pane.  
-
+    <!-- markdownlint-disable MD038 -->
     - By default, this pane uses IntelliSense. For example, if you start typing `D`, IntelliSense suggests all of the entities that start with that letter. Select an option and press Tab to insert it. Type a pipe character and a space `| `, and then IntelliSense suggests all of the table operators. Insert `summarize` and type a space, and IntelliSense suggests all of the aggregation functions. For more information on these operators and functions, click the **Home** tab in CMPivot.  
 
     - The query pane also provides the following options:  
@@ -158,7 +162,7 @@ The CMPivot window contains the following elements:
 
      - **Show devices without**: Query for devices without this value for this property. For example, from the results of the `OS` query, select this option on a cell in the Version row: `OS | summarize countif( (Version == '10.0.17134') ) by Device | where (countif_ == 0) | project Device`  
 
-     - **Bing it**: Launch the default web browser to www.bing.com with this value as the query string.  
+     - **Bing it**: Launch the default web browser to https://www.bing.com with this value as the query string.  
 
    - Click any hyperlinked text to pivot the view on that specific information.  
 
@@ -253,6 +257,15 @@ CMPivot includes the following improvements starting in Configuration Manager ve
   - If the script or query output is greater than 80 KB, the client sends the data via a state message.
   - If the client isn't updated to the 1810 client version, it continues to use state messages.
 
+- You may see the following error when you start CMPivot:
+   **You can't use CMPivot right now due to an incompatible script version. This issue may be because the hierarchy is in the process of upgrading a site. Wait until the upgrade is complete and then try again.**
+
+  - If you see this message, it could mean:
+    - The security scope isn't set up properly.
+    - There are issues with Upgrade in the process.
+    - The underlying CMPivot script is incompatible.
+
+
 ### <a name="bkmk_cmpivot-functions"></a> Scalar functions
 CMPivot supports the following scalar functions:
 - **ago()**: Subtracts the given timespan from the current UTC clock time  
@@ -271,7 +284,7 @@ CMPivot supports the following scalar functions:
 
 ### <a name="bkmk_cmpivot-charts"></a> Rendering visualizations
 
-CMPivot now includes basic support for the Log Analytics [render operator](https://docs.microsoft.com/azure/kusto/query/renderoperator). This support includes the following types:  
+CMPivot now includes basic support for the KQL [render operator](https://docs.microsoft.com/azure/kusto/query/renderoperator). This support includes the following types:  
 - **barchart**: First column is x-axis, and can be text, datetime or numeric. The second columns must be numeric and is displayed as a horizontal strip.  
 - **columnchart**: Like barchart, with vertical strips instead of horizontal strips.  
 - **piechart**: First column is color-axis, second column is numeric.  
@@ -280,33 +293,36 @@ CMPivot now includes basic support for the Log Analytics [render operator](https
 #### Example: bar chart
 The following query renders the most recently used applications as a bar chart:
 
-```
+``` Kusto
 CCMRecentlyUsedApplications
 | summarize dcount( Device ) by ProductName
 | top 10 by dcount_
 | render barchart
 ```
+
 ![Example of CMPivot bar chart visualization](media/1359068-cmpivot-barchart.png)
 
 #### Example: time chart
 To render time charts, use the new **bin()** operator to group events in time. The following query shows when devices have started in the last seven days:
 
-``` 
-OperatingSystem 
+``` Kusto
+OperatingSystem
 | where LastBootUpTime <= ago(7d)
 | summarize count() by bin(LastBootUpTime,1d)
 | render timechart
 ```
+
 ![Example of CMPivot time chart visualization](media/1359068-cmpivot-timechart.png)
 
 #### Example: pie chart
 The following query displays all OS versions in a pie chart:
 
-```
-OperatingSystem 
+``` Kusto
+OperatingSystem
 | summarize count() by Caption
 | render piechart
 ```
+
 ![Example of CMPivot pie chart visualization](media/1359068-cmpivot-piechart.png)
 
 
@@ -316,12 +332,14 @@ Use CMPivot to query any hardware inventory class. These classes include any cus
 The color saturation of the data in the results table or chart indicates if the data is live or cached. For example, dark blue is real-time data from an online client. Light blue is cached data.
 
 #### Example
-```
+
+``` Kusto
 LogicalDisk
 | summarize sum( FreeSpace ) by Device
 | order by sum_ desc
 | render columnchart
 ```
+
 ![Example of CMPivot inventory query with column chart visualization](media/1359068-cmpivot-inventory.png)
 
 #### Limitations
@@ -363,7 +381,7 @@ For example, select the count of devices with a Failure status. See the specific
 
 ### CMPivot audit status messages
 
-Starting in version 1810, when you run CMPivot, an audit status message is created with **MessageID 40805**. You can view the status messages by going to **Monitoring** < **System Status** < **Status Message Queries**. You can run **All Audit status Messages for a Specific User**, **All Audit status Messages for a Specific Site**, or create your own status message query.
+Starting in version 1810, when you run CMPivot, an audit status message is created with **MessageID 40805**. You can view the status messages by going to **Monitoring** > **System Status** > **Status Message Queries**. You can run **All Audit status Messages for a Specific User**, **All Audit status Messages for a Specific Site**, or create your own status message query.
 
 The following format is used for the message:
 
@@ -371,7 +389,7 @@ MessageId 40805: User &lt;UserName> ran script &lt;Script-Guid> with hash &lt;Sc
 
 - 7DC6B6F1-E7F6-43C1-96E0-E1D16BC25C14 is the Script-Guid for CMPivot.
 - The Script-Hash can be seen in the client's scripts.log file.
-- You can also see the hash stored in the client's script score. The filename on the client is &lt;Script-Guid>_&lt;Script-Hash>.
+- You can also see the hash stored in the client's script store. The filename on the client is &lt;Script-Guid>_&lt;Script-Hash>.
     - Example file name: C:\Windows\CCM\ScriptStore\7DC6B6F1-E7F6-43C1-96E0-E1D16BC25C14_abc1d23e45678901fabc123d456ce789fa1b2cd3e456789123fab4c56789d0123.ps
    
 
@@ -381,9 +399,9 @@ MessageId 40805: User &lt;UserName> ran script &lt;Script-Guid> with hash &lt;Sc
 <!--3610960-->
 Starting in Configuration Manager version 1902, you can run CMPivot from the central administration site (CAS) in a hierarchy. The primary site still handles the communication to the client. When running CMPivot from the central administration site, it communicates with the primary site over the high-speed message subscription channel. This communication doesn't rely upon standard SQL replication between sites.
 
-Running CMPivot on the CAS will require additional permissions when SQL or the provider are not on the same machine or in the case of SQL Always On configuration. With these remote configurations, you have a “double hop scenario” for CMPivot.
+Running CMPivot on the CAS will require additional permissions when SQL or the provider aren't on the same machine or in the case of SQL Always On configuration. With these remote configurations, you have a “double hop scenario” for CMPivot.
 
-To get CMPivot to work on the CAS in such a “double hop scenario”, you can define constrained delegation. To understand the security implications of this configuration, read the [Kerberos constrained delegation](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) article. If you have more than one remote configuration such as SQL or SCCM Provider being colocated with the CAS or not, you may require a combination of permission settings. Below are the steps that you need to take:
+To get CMPivot to work on the CAS in such a “double hop scenario”, you can define constrained delegation. To understand the security implications of this configuration, read the [Kerberos constrained delegation](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) article. If you have more than one remote configuration such as SQL or SMS Provider being colocated with the CAS or not, you may require a combination of permission settings. Below are the steps that you need to take:
 
 ### CAS has a remote SQL server
 
@@ -440,6 +458,116 @@ To get CMPivot to work on the CAS in such a “double hop scenario”, you can d
 1. Restart the primary SQL servers.
 1. Restart the CAS site server and the CAS SQL servers.
 
+## <a name="bkmk_cmpivot1906"></a> CMPivot starting in version 1906
+
+Starting in version 1906, the following items were added to CMPivot:
+
+- [Joins, additional operators, and aggregators](#bkmk_cmpivot_joins)
+- [Added CMPivot permissions to the Security Administrator role](#bkmk_cmpivot_secadmin1906)
+- [CMPivot standalone](#bkmk_standalone) was added as a **pre-release feature**
+
+### <a name="bkmk_cmpivot_joins"></a> Add joins, additional operators, and aggregators in CMPivot
+<!--4054074-->
+You now have additional arithmetic operators, aggregators, and the ability to add query joins such as using Registry and File together. The following items have been added:
+
+#### Table operators
+
+|Table operators| Description|
+|-----|-----|
+| [join](https://docs.microsoft.com/azure/kusto/query/joinoperator)| Merge the rows of two tables to form a new table by matching row for the same device|
+|render|Renders results as graphical output|
+
+The render operator already exists in CMPivot. Support for multiple series and the **with** statement were added. For more information, see the [examples](#bkmk_cmpivot_examples1906) section and Kusto's [join operator](https://docs.microsoft.com/azure/kusto/query/joinoperator) article.
+
+#### Limitations for joins
+
+1. The join column is always implicitly done on the **Device** field.
+1. You can use a maximum of 5 joins per query.
+1. You can use a maximum of 64 combined columns.
+
+#### Scalar operators
+
+|Operator| Description|Example|
+|-----|-----|-----|
+| + | Add| `2 + 1, now() + 1d`|
+| - |  Subtract| `2 - 1, now() - 1d`|
+| * | Multiply| `2 * 2`|
+| / | Divide | `2 / 1`|
+| % | Modulo | `2 % 1`
+
+#### Aggregation functions
+
+|Function| Description|
+|-----|-----|
+| percentile()| Returns an estimate for the specified nearest-rank percentile of the population defined by Expr|
+| sumif() | Returns a sum of Expr for which Predicate evaluates to true|
+
+#### Scalar functions
+
+|Function| Description|
+|-----|-----|
+| case()| Evaluates a list of predicates and returns the first result expression whose predicate is satisfied |
+| iff() | Evaluates the first argument and returns the value of either the second or third arguments depending on whether the predicate evaluated to true (second) or false (third)|
+ | indexof() | Function reports the zero-based index of the first occurrence of a specified string within input string|
+| strcat() | Concatenates between 1 and 64 arguments |
+| strlen()| Returns the length, in characters, of the input string|
+| substring() | Extracts a substring from a source string starting from some index to the end of the string |
+| tostring() | Converts input to a string operation |
+
+#### <a name="bkmk_cmpivot_examples1906"></a> Examples
+
+- Show device, manufacturer, model, and OSVersion:
+
+   ``` Kusto
+   ComputerSystem
+   | project Device, Manufacturer, Model
+   | join (OperatingSystem | project Device, OSVersion=Caption)
+   ```
+
+- Show graph of boot times for a device:
+
+   ``` Kusto
+   SystemBootData
+   | where Device == 'MyDevice'
+   | project SystemStartTime, BootDuration, OSStart=EventLogStart, GPDuration, UpdateDuration
+   | order by SystemStartTime desc
+   | render barchart with (kind=stacked, title='Boot times for MyDevice', ytitle='Time (ms)')
+   ```
+
+   ![Stacked bar chart showing boot times for a device in ms](./media/4054074-render-using-with-statement.png)
+
+### <a name="bkmk_cmpivot_secadmin1906"></a> Added CMPivot permissions to the Security Administrator role
+<!--4683130-->
+
+Starting in version 1906, the following permissions have been added to Configuration Manager's built-in **Security Administrator** role:
+
+ - **Read** on SMS Script
+ - **Run CMPivot** on Collection
+ - **Read** on Inventory Report
+
+>[!NOTE]
+> **Run Scripts** is a super set of the **Run CMPivot** permission.
+ 
+
+### <a name="bkmk_standalone"></a> CMPivot standalone
+<!--3555890, 4619340, 4683130 -->
+
+Starting in version 1906, you can use CMPivot as a standalone app. CMPivot standalone is a [pre-release feature](/sccm/core/servers/manage/pre-release-features#bkmk_table) and is only available in English. Run CMPivot outside of the Configuration Manager console to view the real-time state of devices in your environment. This change enables you to use CMPivot on a device without first installing the console.
+
+You can share the power of CMPivot with other personas, such as helpdesk or security admins, who don’t have the console installed on their computer. These other personas can use CMPivot to query Configuration Manager alongside the other tools that they traditionally use. By sharing this rich management data, you can work together to proactively solve business problems that cross roles.
+
+#### Install CMPivot standalone
+
+1. Set up the permissions needed to run CMPivot. For more information, see [prerequisites](#prerequisites). You can also use the [Security Administrator role](#bkmk_cmpivot_secadmin1906) if the permissions are appropriate for the user.
+2. Find the CMPivot app installer in the following path: `<site install path>\tools\CMPivot\CMPivot.msi`. You can run it from that path, or copy it to another location.
+3. When you run the CMPivot standalone app, you'll be asked to connect to a site. Specify the fully qualified domain name or computer name of either the Central Administration or primary site server.
+   - Each time you open CMPivot standalone you'll be prompted to connect to a site server.
+4. Browse to the collection on which you want to run CMPivot, then run your query.
+
+   ![Browse to the collection you want to run your query against](./media/3555890-cmpivot-standalone-browse-collection.png)
+
+> [!NOTE]
+> Right-click actions, such as **Run Scripts** and **Resource Explorer**, aren't avilable in CMPivot standalone.
 
 ## Inside CMPivot
 
@@ -463,9 +591,9 @@ A query times out after one hour. For example, a collection has 500 devices, and
 - StateSys.log
 
 **Client-side:**
- - CcmNotificationAgent.log
- - Scripts.log
- - StateMessage.log
+- CcmNotificationAgent.log
+- Scripts.log
+- StateMessage.log
 
 For more information, see [Log files](/sccm/core/plan-design/hierarchy/log-files) and [Troubleshooting CMPivot](/sccm/core/servers/manage/cmpivot-tsg).
 

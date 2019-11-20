@@ -2,13 +2,13 @@
 title: "Example Asset Intelligence general license import file"
 titleSuffix: "Configuration Manager"
 description: "Use a sample Asset Intelligence general license file to help import software licenses in System Center Configuration Manager."
-ms.date: 2/22/2017
+ms.date: 02/22/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
 ms.assetid: e6258333-a783-440b-b1af-f8023b782fbc
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---

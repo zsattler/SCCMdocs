@@ -2,7 +2,7 @@
 title: "Install Updates Publisher"
 titleSuffix: "Configuration Manager"
 description: "Install System Center Updates Publisher in your environment"
-ms.date: 02/19/2019
+ms.date: 08/22/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.topic: conceptual
@@ -35,7 +35,7 @@ Install and run Updates Publisher on a 64-bit editions of the following operatin
 The following are required on the computer that runs Updates Publisher.
 
 -   **64-bit operating system**: The computer where you install Updates Publisher must run a 64-bit operating system.
--   **WSUS 4.0 or later**:
+-   **WSUS 6.2 or later**:
     -   On Windows Server, install the default Administration Console to meet this requirement.
     -   For Windows 10 and Windows 8.1, install the [Remote Server Administration Tools (RSAT) for Windows operating systems](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems). This installs the necessary support to use Updates Publisher (*API and PowerShell cmdlets*, and *User Interface Management Console*).
 -   **Permissions**:
@@ -97,12 +97,10 @@ The following languages are supported for software update titles and description
 -   Russian
 -   Spanish
 
-
-
 ## Install Updates Publisher
 Get the **UpdatesPubliser.msi** for installing System Center Updates Publisher from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55543).
 
-To install Updates Publisher, run **UpdatesPublisher.msi** on a computer that meets the *prerequisites*. The installer creates the following folder to contain the files necessary to run Updates Publisher: *&lt;path&gt;\Program Files\Microsoft\UpdatesPublisher*.
+To install Updates Publisher, run **UpdatesPublisher.msi** on a computer that meets the *prerequisites*. The installer creates the following folder to contain the files necessary to run Updates Publisher: %PROGRAMFILES%\Microsoft\UpdatesPublisher*.
 
 Because this folder contains all the files necessary to use Updates Publisher, you can copy the folder and its contents to a new location or computer and then use Updates Publisher from that location. However, the new location or computer must meet the prerequisites to run Updates Publisher.
 
@@ -112,4 +110,3 @@ After installation completes, run **UpdatesPublisher.exe** from the *UpdatesPubl
  After you install Updates Publisher, we recommend you [configuring the options](updates-publisher-options.md) for Updates Publisher. You must configure some options before you can use some features of Updates Publisher.
 
  However, if you want to use the defaults and don't plan to deploy updates to an update server or to managed devices, you can jump right to [managing software update catalogs](updates-publisher-catalogs.md), or [create software updates](create-updates-with-updates-publisher.md) and create update catalogs of your own.
-

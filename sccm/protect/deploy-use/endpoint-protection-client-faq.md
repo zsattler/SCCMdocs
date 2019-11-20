@@ -7,8 +7,8 @@ ms.prod: configuration-manager
 ms.technology: configmgr-protect
 ms.topic: conceptual
 ms.assetid: e3aaa9d2-a40e-42b1-ad75-5a115351729e
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---
@@ -22,15 +22,15 @@ This FAQ is for computer users whose IT administrator has deployed Windows Defen
 -   [Why do I need antivirus and antispyware software?](#why-do-i-need-antivirus-and-antispyware-software)  
 -   [How can I tell if my computer is infected with malicious software?](#how-can-i-tell-if-my-computer-is-infected-with-malicious-software)
 -   [How can I find the version of Windows Defender?](#how-can-i-find-the-version-of-windows-defender)
--   [What should I do if Windows Defender or Endpoint Protection detects malicious software on my computer?](#what-should-i-do-if-windows-defender-or-endpoint-protection-detects-software-on-my-computer)  
+-   [What should I do if Windows Defender or Endpoint Protection detects malicious software on my computer?](#what-should-i-do-if-windows-defender-or-endpoint-protection-detects-malicious-software-on-my-computer)  
 -   [What is a virus?](#what-is-a-virus)  
 -   [What is a spyware?](#what-is-spyware)  
--   [What's the difference between viruses, spyware, and other potentially harmful software?](#hat-s-the-difference-between-viruses-spyware-and-other-potentially-harmful-software)  
+-   [What's the difference between viruses, spyware, and other potentially harmful software?](#whats-the-difference-between-viruses-spyware-and-other-potentially-harmful-software)  
 -   [Where do viruses, spyware, and other potentially unwanted software come from?](#where-do-viruses-spyware-and-other-potentially-unwanted-software-come-from)  
 -   [Can I get malicious software without knowing it?](#can-i-get-malicious-software-without-knowing-it)  
 -   [Why is it important to review license agreements before installing software?](#why-is-it-important-to-review-license-agreements-before-installing-software)  
--   [What's the difference between Endpoint Protection and Windows Defender?](#what-s-the-difference-between-endpoint-protection-and-windows-defender)  
--   [Why doesn't Windows Defender detect cookies?](#why-doesn-t-windows-defender-detect-cookies)  
+-   [What's the difference between Endpoint Protection and Windows Defender?](#whats-the-difference-between-endpoint-protection-and-windows-defender)  
+-   [Why doesn't Windows Defender detect cookies?](#why-doesnt-windows-defender-detect-cookies)  
 -   [How can I prevent malware?](#how-can-i-prevent-malware)  
 -   [What are virus and spyware definitions?](#what-are-virus-and-spyware-definitions)  
 -   [How do I keep virus and spyware definitions up to date?](#how-do-i-keep-virus-and-spyware-definitions-up-to-date)  
@@ -102,7 +102,7 @@ To remove all unwanted or potentially harmful items that Windows Defender detect
 
 3.  To learn more about the detected threats, click the **History** tab, and then select **All detected items**.  
 
-4.  If you don't see all the detected items, click **View details**. If you're prompted for an administrator password or confirmation, type the password or confirm the action. On systems running Windows XP, you may need to log on as an administrator on this computer.  
+4.  If you don't see all the detected items, click **View details**. If you're prompted for an administrator password or confirmation, type the password or confirm the action.
 
 > [!NOTE]  
 >  During computer cleanup, whenever possible, Windows Defender removes only the infected part of a file, not the entire file.  
@@ -140,7 +140,7 @@ To remove all unwanted or potentially harmful items that Windows Defender detect
 
 -   Make sure your antivirus and antispyware software, Windows Defender, is using the latest updates again potential threats (see How do I keep virus and spyware definitions up to date?). Also make sure you're always using the latest version of Windows Defender.  
 
--   Only download updates from reputable sources. For Windows operating systems, always go to [Microsoft Update](http://go.microsoft.com/fwlink/?LinkID=96304) (http://go.microsoft.com/fwlink/?LinkID=96304) and for other software always use the legitimate websites of the company or person who produces it.  
+-   Only download updates from reputable sources. For Windows operating systems, always go to [Microsoft Update](https://go.microsoft.com/fwlink/?LinkID=96304) (https://go.microsoft.com/fwlink/?LinkID=96304) and for other software always use the legitimate websites of the company or person who produces it.  
 
 -   If you receive an e-mail with an attachment and you're unsure of the source, then you should delete it immediately. Don't download any applications or files from unknown sources, and be careful when trading files with other users.  
 

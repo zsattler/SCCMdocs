@@ -2,7 +2,7 @@
 title: "Planning client deployment to Windows Embedded devices"
 titleSuffix: "Configuration Manager"
 description: "Plan for client deployment to Windows Embedded devices in System Center Configuration Manager."
-ms.date: 04/23/2017
+ms.date: 06/12/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.topic: conceptual
@@ -41,11 +41,11 @@ ms.collection: M365-identity-device-management
 
  Configuration Manager supports managing the following types of write filters:  
 
-- File-Based Write Filter (FBWF) -  For more information, see [File-Based Write Filter](http://go.microsoft.com/fwlink/?LinkID=204717).  
+- File-Based Write Filter (FBWF) -  For more information, see [File-Based Write Filter](https://go.microsoft.com/fwlink/?LinkID=204717).  
 
-- Enhanced Write Filter (EWF) RAM - For more information, see [Enhanced Write Filter](http://go.microsoft.com/fwlink/?LinkId=204718).  
+- Enhanced Write Filter (EWF) RAM - For more information, see [Enhanced Write Filter](https://go.microsoft.com/fwlink/?LinkId=204718).  
 
-- Unified Write Filter (UWF) - For more information, see [Unified Write Filter](http://go.microsoft.com/fwlink/?LinkId=309236).  
+- Unified Write Filter (UWF) - For more information, see [Unified Write Filter](https://go.microsoft.com/fwlink/?LinkId=309236).  
 
   Configuration Manager does not support write filter operations when the Windows Embedded device is in EWF RAM Reg mode.  
 
@@ -76,6 +76,9 @@ ms.collection: M365-identity-device-management
 > - c:\Windows\System32\Microsoft\Protect  
 >   -   c:\ProgramData\Microsoft\Crypto  
 >   -   HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates\SMS\Certificates  
+
+> [!NOTE]
+> No additional exceptions are needed by the Configuration Manager client other than those documented in the above **Important** box. Adding additional Configuration Manager or WMI (WBEM) related exceptions may lead to failures of the Configuration Manager including devices getting stuck in servicing mode or devices experiencing reboot loops. Unneeded exceptions include the Configuration Manager client directory, the CCMcache directory, the CCMSetup directory, the Task Sequence cache directory, the WBEM directory, and Configuration Manager related registry keys.
 
  For an example scenario to deploy and manage write-filter-enabled Windows Embedded devices in Configuration Manager see [Example scenario for deploying and managing System Center Configuration Manager clients on Windows Embedded devices](../../../../core/clients/deploy/example-scenario-for-deploying-and-managing-clients-on-windows-embedded-devices.md).  
 

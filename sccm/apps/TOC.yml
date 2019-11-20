@@ -1,3 +1,5 @@
+- name: Application management
+  href: understand/introduction-to-application-management.md
 - name: Understand and explore
   items:
   - name: Introduction
@@ -8,8 +10,10 @@
     href: get-started/create-and-deploy-an-application.md
 - name: Plan and design
   items:
-  - name: Plan for, and configure application management
+  - name: Plan for and configure application management
     href: plan-design/plan-for-and-configure-application-management.md
+  - name: Plan for Software Center
+    href: plan-design/plan-for-software-center.md
   - name: Security and privacy
     href: plan-design/security-and-privacy-for-application-management.md
 - name: Deploy and use
@@ -27,8 +31,12 @@
       href: get-started/creating-windows-embedded-applications.md
     - name: Create global conditions
       href: deploy-use/create-global-conditions.md
+    - name: Create application groups
+      href: deploy-use/create-app-groups.md
     - name: Packages and programs
       href: deploy-use/packages-and-programs.md
+    - name: Package definition files
+      href: deploy-use/package-definition-files.md
   - name: Deploy applications
     items:
     - name: Deploy applications
@@ -37,12 +45,16 @@
       href: ../osd/deploy-use/create-phased-deployment-for-task-sequence.md?toc=/sccm/apps/toc.json&bc=/sccm/apps/breadcrumb/toc.json
     - name: Approve applications
       href: deploy-use/app-approval.md
+    - name: Install applications for a device
+      href: deploy-use/install-app-for-device.md
     - name: Share an application
       href: deploy-use/share-applications.md
     - name: Simulate application deployments
       href: deploy-use/simulate-application-deployments.md
     - name: Deploy App-V virtual applications
       href: get-started/deploying-app-v-virtual-applications.md
+    - name: Troubleshoot application deployments
+      href: deploy-use/troubleshoot-application-deployment.md
   - name: Monitor applications
     items:
     - name: Monitor applications from the console
@@ -59,8 +71,12 @@
       href: deploy-use/link-users-and-devices-with-user-device-affinity.md
     - name: Microsoft Store for Business volume-purchased apps
       href: deploy-use/manage-apps-from-the-windows-store-for-business.md
+    - name: Troubleshoot Microsoft Store for Business integration
+      href: deploy-use/troubleshoot-microsoft-store-for-business-integration.md
     - name: App-V virtual environments
       href: deploy-use/create-app-v-virtual-environments.md
+    - name: Import and export applications
+      href: deploy-use/import-export-applications.md
   - name: Update and retire applications
     items:
     - name: Update and retire applications

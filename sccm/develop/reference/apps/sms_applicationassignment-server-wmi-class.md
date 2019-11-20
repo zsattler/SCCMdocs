@@ -330,6 +330,10 @@ Class SMS_ApplicationAssignment : SMS_CIAssignmentBaseClass
 |-|-|  
 |1|PREDEPLOY|  
 |2|ONDEMAND|  
+|4|ENABLEPROCESSTERMINATION|  
+|8|ALLOWUSERSTOREPAIRAPP|  
+|16|RELATIVESCHEDULE|  
+|32|HIGHIMPACTDEPLOYMENT|  
 
  `OfferTypeID`  
  Data type: `SInt32`  
@@ -513,6 +517,3 @@ Class SMS_ApplicationAssignment : SMS_CIAssignmentBaseClass
 
 ## Development Requirements  
  For more information, see [Configuration Manager Server Development Requirements](../../../develop/core/reqs/server-development-requirements.md).  
-
-## See Also  
- [Application Management Server WMI Classes](../../../develop/reference/apps/application-management-server-wmi-classes.md)

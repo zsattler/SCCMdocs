@@ -2,13 +2,13 @@
 title: "Install site system roles"
 titleSuffix: "Configuration Manager"
 description: "Wizards help you add site system roles to an existing or new site system server in the site."
-ms.date: 2/7/2017
+ms.date: 02/7/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
 ms.assetid: 61f5c774-7667-44ae-b8e4-a4951318b183
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---
@@ -41,16 +41,16 @@ Just prior to installing the site system role, Configuration Manager checks the 
 4.  On the **General** page, review the settings, and then click **Next**.  
 
     > [!TIP]  
-    >  To access the site system role from the Internet, ensure that you specify an Internet fully qualified domain name (FQDN).  
+    >  To access the site system role from the internet, ensure that you specify an internet fully qualified domain name (FQDN).  
 
-5.  On the **Proxy** page, specify settings for a proxy server, if site system roles that run on this site system server require a proxy server to connect to locations on the Internet. Then click **Next**.  
+5.  On the **Proxy** page, specify settings for a proxy server, if site system roles that run on this site system server require a proxy server to connect to locations on the internet. Then click **Next**.  
 
 6.  On the **System Role Selection** page, select the site system roles that you want to add, and then click **Next**.  
 
 7.  Complete the wizard.  
 
 > [!TIP]  
->  The Windows PowerShell cmdlet, New-CMSiteSystemServer, performs the same function as this procedure. For more information, see [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) in the System Center 2012 Configuration Manager SP1 Cmdlet Reference documentation.  
+>  The Windows PowerShell cmdlet, New-CMSiteSystemServer, performs the same function as this procedure. For more information, see [New-CMSiteSystemServer](https://go.microsoft.com/fwlink/p/?LinkID=271414) in the System Center 2012 Configuration Manager SP1 Cmdlet Reference documentation.  
 
 ## To install site system roles on a new site system server  
 
@@ -63,13 +63,13 @@ Just prior to installing the site system role, Configuration Manager checks the 
 4.  On the **General** page, specify the general settings for the site system, and then click **Next**.  
 
     > [!TIP]  
-    >  To access the new site system role from the Internet, ensure that you specify an Internet FQDN.  
+    >  To access the new site system role from the internet, ensure that you specify an internet FQDN.  
 
-5.  On the **Proxy** page, specify settings for a proxy server, if site system roles that run on this site system server require a proxy server to connect to locations on the Internet. Then click **Next**.  
+5.  On the **Proxy** page, specify settings for a proxy server, if site system roles that run on this site system server require a proxy server to connect to locations on the internet. Then click **Next**.  
 
 6.  On the **System Role Selection** page, select the site system roles that you want to add, and then click **Next**.  
 
 7.  Complete the wizard.  
 
 > [!TIP]  
->  The Windows PowerShell cmdlet, New-CMSiteSystemServer, performs the same function as this procedure. For more information, see [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) in the System Center 2012 Configuration Manager SP1 Cmdlet Reference documentation.  
+>  The Windows PowerShell cmdlet, New-CMSiteSystemServer, performs the same function as this procedure. For more information, see [New-CMSiteSystemServer](https://go.microsoft.com/fwlink/p/?LinkID=271414) in the System Center 2012 Configuration Manager SP1 Cmdlet Reference documentation.  

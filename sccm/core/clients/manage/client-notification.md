@@ -65,6 +65,7 @@ Starts **CMPivot**, which runs real-time queries against the targeted devices. F
 #### Permissions
 This action requires the same permissions as the [Run script](#run-script) action. 
 
+Starting in version 1906, you can use the **Run CMPivot** permission on the **Collection** object.
 
 
 ## Client notification
@@ -79,7 +80,7 @@ Starting in version 1810, client notification actions now require the **Notify R
 
 The following built-in roles have this permission by default:
 - Full Administrator  
-- Infrastructure Administrator  
+- Operations Administrator  
 
 Add this permission to any custom roles that need to use client notification actions.
 
@@ -143,7 +144,7 @@ This action requires the **Notify resource** permission on the **Collection** ob
 
 ### Restart
 
-Trigger the selected devices to restart. 
+Trigger the selected devices to restart. For more information, see [Restart clients](/sccm/core/clients/manage/manage-clients#restart-clients).
 
 
 

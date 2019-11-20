@@ -1,5 +1,5 @@
 ---
-title: Configure Endpoint Protection
+title: Endpoint Protection client settings
 titleSuffix: Configuration Manager
 description: Learn how to configure custom client settings for Endpoint Protection.
 ms.date: 07/30/2018
@@ -7,8 +7,8 @@ ms.prod: configuration-manager
 ms.technology: configmgr-protect
 ms.topic: conceptual
 ms.assetid: e63f2394-6eb1-4a33-bec5-8377fc62a34e
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---

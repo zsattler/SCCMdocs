@@ -2,13 +2,13 @@
 title: "Command-line install"
 titleSuffix: "Configuration Manager"
 description: "Learn how to run System Center Configuration Manager Setup at a command prompt for a variety of site installations."
-ms.date: 3/27/2017
+ms.date: 03/27/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
 ms.assetid: e7cdb1a9-140a-436e-ac71-72d083110223
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---

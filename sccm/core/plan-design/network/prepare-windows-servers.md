@@ -2,13 +2,13 @@
 title: Prepare Windows Servers
 titleSuffix: Configuration Manager
 description: Ensure that a computer meets prerequisites for use as a site server or a site system server for Configuration Manager.
-ms.date: 2/14/2017
+ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
 ms.assetid: 2aca914f-641e-4bc8-98d4-bbf0a2a5276f
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---

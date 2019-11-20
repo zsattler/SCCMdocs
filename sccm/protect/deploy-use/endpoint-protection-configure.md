@@ -1,14 +1,14 @@
 ---
-title: "Configure Endpoint Protection"
-titleSuffix: "Configuration Manager"
-description: "Learn how to set up Configuration Manager to update and distribute malware definitions for Windows Defender."
+title: Configure Endpoint Protection
+titleSuffix: Configuration Manager
+description: Learn how to set up Configuration Manager to update and distribute malware definitions for Windows Defender.
 ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-protect
 ms.topic: conceptual
 ms.assetid: e63f2394-6eb1-4a33-bec5-8377fc62a34e
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---

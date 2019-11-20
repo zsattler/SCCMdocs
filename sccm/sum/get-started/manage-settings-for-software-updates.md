@@ -2,14 +2,14 @@
 title: Manage settings for software updates
 titleSuffix: "Configuration Manager"
 description: "Learn about the client settings that are appropriate for software updates at your site after you install the software update point."
-author: aczechowski
 ms.date: 03/26/2017
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: 0d484c1a-e903-4bff-9e9b-e452c62e38a8
 manager: dougeby
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 ms.collection: M365-identity-device-management
 ---
 
@@ -36,7 +36,7 @@ There are specific group policy settings that are used by Windows Update Agent (
 When the software update point is created for a site, clients receive a machine policy that provides the software update point server name and configures the **Specify intranet Microsoft update service location** local policy on the computer. The WUA retrieves the server name that is specified in the **Set the intranet update service for detecting updates** setting, and then it connects to this server when it scans for software updates compliance. When a domain policy is created for the **Specify intranet Microsoft update service location** setting, it overrides the local policy, and the WUA might connect to a server other than the software update point. If this happens, the client might scan for software update compliance based on different products, classifications, and languages. Therefore, you should not configure the Active Directory policy for client computers.  
 
 ### Allow Signed Content from Intranet Microsoft Update Service Location group policy  
-You must enable the **Allow signed content from intranet Microsoft update service location** Group Policy setting before the WUA on computers will scan for software updates that were created and published with System Center Updates Publisher. When the policy setting is enabled, WUA will accept software updates that are received through an intranet location if the software updates are signed in the **Trusted Publishers** certificate store on the local computer. For more information about the Group Policy settings that are required for Updates Publisher, see [Updates Publisher 2011 Documentation Library](http://go.microsoft.com/fwlink/p/?LinkId=232476).  
+You must enable the **Allow signed content from intranet Microsoft update service location** Group Policy setting before the WUA on computers will scan for software updates that were created and published with System Center Updates Publisher. When the policy setting is enabled, WUA will accept software updates that are received through an intranet location if the software updates are signed in the **Trusted Publishers** certificate store on the local computer. For more information about the Group Policy settings that are required for Updates Publisher, see [Updates Publisher 2011 Documentation Library](https://go.microsoft.com/fwlink/p/?LinkId=232476).  
 
 ### Automatic updates configuration  
 Automatic Updates allows security updates and other important downloads to be received on client computers. Automatic Updates is configured through the **Configure Automatic Updates** Group Policy setting or through the Control Panel on the local computer. When Automatic Updates is enabled, client computers will receive update notifications and, depending on the configured settings, the client computers will download and install the required updates. When Automatic Updates coexists with software updates, each client computer might display notification icons and popup display notifications for the same update. Also, when a restart is required, each client computer might display a restart dialog box for the same update.  
@@ -64,7 +64,11 @@ In software update properties, you can review detailed information about a softw
 ####  <a name="BKMK_SoftwareUpdateDetails"></a> Software update details  
 In the **Update Details** tab, you can view the following summary information about the selected software update:  
 
-- **Bulletin ID**: Specifies the bulletin ID that is associated with security software updates. You can find security bulletin details by searching on the bulletin ID at the [Microsoft Security Bulletin Search](http://go.microsoft.com/fwlink/p/?LinkId=58313) Web page.  
+- **Bulletin ID**: Specifies the bulletin ID that is associated with security software updates. You can find security bulletin details by searching on the bulletin ID on the [Microsoft Security Response Center](https://portal.msrc.microsoft.com/) Web page.  
+
+> [!NOTE]
+> The way Microsoft documents security updates is changing. The previous model used security bulletin webpages and included security bulletin ID numbers (e.g. MS16-XXX) as a pivot point. This form of security update documentation, including bulletin ID numbers, is being retired and replaced with the Security Update Guide. Instead of bulletin IDs, the new guide pivots on vulnerability ID numbers and KB Article ID numbers. For more information, see the [Security Update Guide FAQs](https://www.microsoft.com/msrc/faqs-security-update-guide).
+
 
 - **Article ID**: Specifies the article ID for the software update. The referenced article provides more detailed information about the software update and the issue that the software update fixes or improves.  
 

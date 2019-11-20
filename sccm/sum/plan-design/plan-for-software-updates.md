@@ -5,9 +5,9 @@ description: A plan for the software update point infrastructure is essential be
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.date: 03/21/2019
+ms.date: 10/22/2019
 ms.topic: conceptual
-ms.prod: configuration-manager
+ms.prod: configuration-manager 
 ms.technology: configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
 ms.collection: M365-identity-device-management
@@ -17,48 +17,7 @@ ms.collection: M365-identity-device-management
 
 *Applies to: System Center Configuration Manager (Current Branch)*
 
-Before you use software updates in a Configuration Manager production environment, it's important that you go through the planning process. Having a good plan for the software update point infrastructure is key to a successful software updates implementation.
-
-
-
-## Capacity planning recommendations for software updates  
-
-This section includes the following subtopics:  
-- [Capacity planning for the software update point](#BKMK_SUMCapacity)
-- [Capacity planning for software updates objects](#bkmk_sum-capacity-obj)  
-
-
-Use the following recommendations as a baseline. This baseline helps you determine the information for the software updates capacity planning that is appropriate to your organization. The actual capacity requirements might vary from the recommendations listed in this article depending on the following criteria: 
-- Your specific networking environment
-- The hardware that you use to host the software update point site system
-- The number of managed clients
-- The other site system roles installed on the server  
-
-
-###  <a name="BKMK_SUMCapacity"></a> Capacity planning for the software update point  
-
-The number of supported clients depends on the version of Windows Server Update Services (WSUS) that runs on the software update point. It also depends on whether the software update point site system role co-exists with another site system role:  
-
--   The software update point can support up to 25,000 clients when WSUS runs on the software update point server, and the software update point co-exists with another site system role.  
-
--   The software update point can support up to 150,000 clients when a remote server meets WSUS requirements, WSUS is used with Configuration Manager, and you configure the following settings:
-
-    IIS Application Pools:
-    - Increase the WsusPool Queue Length to 2000
-    - Increase the WsusPool Private Memory limit x4 times, or set to 0 (unlimited). For example, if the default limit is 1,843,200 KB, increase it to 7,372,800. For more information, see this [Configuration Manager support team blog post](https://blogs.technet.microsoft.com/configurationmgr/2015/03/23/configmgr-2012-support-tip-wsus-sync-fails-with-http-503-errors/).  
-
-    For more information about hardware requirements for the software update point, see [Recommended hardware for site systems](/sccm/core/plan-design/configs/recommended-hardware#a-namebkmkscalesiesystemsa-site-systems).  
-
-
-### <a name="bkmk_sum-capacity-obj"></a> Capacity planning for software updates objects  
-
-Use the following capacity information to plan for software updates objects:  
-
-#### Limit of 1000 software updates in a deployment  
-Limit the number of software updates to 1000 for each software update deployment. When you create an automatic deployment rule (ADR), specify criteria that limits the number of software updates. The ADR fails when the specified criteria returns more than 1000 software updates. Check the status of the ADR from the **Automatic Deployment Rules** node in the Configuration Manager console. When you manually deploy software updates, don't select more than 1000 updates to deploy.  
-
-Also limit the number of software updates to 1000 in a configuration baseline. For more information, see [Create configuration baselines](/sccm/compliance/deploy-use/create-configuration-baselines).
-
+Before you use software updates in a Configuration Manager production environment, it's important that you go through the planning process. Having a good plan for the software update point infrastructure is key to a successful software updates implementation. For information about capacity planning for software updates, see [Size and scale numbers](/sccm/core/plan-design/configs/size-and-scale-numbers#software-update-point).
 
 
 ##  <a name="BKMK_SUPInfrastructure"></a> Determine the software update point infrastructure  
@@ -76,9 +35,9 @@ This section includes the following subtopics:
 
 
 The central administration site and all child primary sites must have a software update point. As you plan for the software update point infrastructure, determine the following dependencies:
- - Where to install the software update point for the site  
- - Which sites require a software update point that accepts communication from internet-based clients
- - Whether you need a software update point at secondary sites  
+- Where to install the software update point for the site  
+- Which sites require a software update point that accepts communication from internet-based clients
+- Whether you need a software update point at secondary sites  
 
 > [!IMPORTANT]  
 >  For more information about the internal and external dependencies that are required for software updates, see [Prerequisites for software updates](prerequisites-for-software-updates.md).  
@@ -87,7 +46,7 @@ Add multiple software update points at a Configuration Manager primary site to p
 
 The first software update point that you install on a primary site is the synchronization source for all additional software update points that you add at the primary site. After you add software update points and start synchronization, view the status of the software update points and the synchronization source from the **Software Update Point Synchronization Status** node in the **Monitoring** workspace.  
 
-When there is a failure of the software update point configured as the synchronization source for the site, manually remove the failed role. Then select a new software update point to use as the synchronization source. For more information, see [Remove the software update point site system role](../get-started/remove-a-software-update-point.md).  
+When there's a failure of the software update point configured as the synchronization source for the site, manually remove the failed role. Then select a new software update point to use as the synchronization source. For more information, see [Remove the software update point site system role](../get-started/remove-a-software-update-point.md).  
 
 
 ###  <a name="BKMK_SUPList"></a> Software update point list  
@@ -146,7 +105,9 @@ To look up the meaning of an error code, convert the decimal error code to hexad
 Switch Configuration Manager clients to a new software update point when there are issues with the active software update point. This change only happens when a client receives multiple software update points from a management point.
 
 > [!IMPORTANT]    
-> When you switch devices to use a new server, the devices use fallback to find that new server. Before you start this change, review your boundary group configurations to make sure that your software update points are in the correct boundary groups. For more information, see [Software update points](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points).  
+> When you switch devices to use a new server, the devices use fallback to find that new server. Clients switch to the new software update point during their next software updates scan cycle.<!-- SCCMDocs#1537 -->
+>
+> Before you start this change, review your boundary group configurations to make sure that your software update points are in the correct boundary groups. For more information, see [Software update points](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points).  
 >
 > Switching to a new software update point generates additional network traffic. The amount of traffic depends on your WSUS configuration settings, for example, the synchronized classifications and products, or use of a shared WSUS database. If you plan to switch multiple devices, consider doing so during maintenance windows. This timing reduces the impact to your network when clients scan with the new software update point.  
 
@@ -255,7 +216,7 @@ This section provides information about the steps to take to successfully plan a
 
 Install the software update point role on a site system that meets the minimum requirements for WSUS and the supported configurations for Configuration Manager site systems.  
 
--   For more information about the minimum requirements for the WSUS server role in Windows Server, see [Review considerations and system requirements](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment#BKMK_1.1).  
+-   For more information about the minimum requirements for the WSUS server role in Windows Server, see [Review considerations and system requirements](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment#11-review-considerations-and-system-requirements).  
 
 -   For more information about the supported configurations for Configuration Manager site systems, see [Site and site system prerequisites](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).  
 
@@ -274,6 +235,9 @@ For more information about how to install WSUS on Windows Server, see [Install t
 
 When you install more than one software update point at a primary site, use the same WSUS database for each software update point in the same Active Directory forest. Sharing the same database improves performance when clients switch to a new software update point. For more information, see [Use a shared WSUS database for software update points](/sccm/sum/plan-design/software-updates-best-practices#bkmk_shared-susdb).  
 
+#### Configuring the WSUS content directory path
+
+When you install WSUS, you'll need to provide a content directory path. The WSUS content directory is primarily used for storing the Microsoft Software License Terms files needed by clients during scanning. The Configuration Manager  The WSUS content directory should not overlap with your content source directory for Configuration Manager software deployment packages. Overlapping the WSUS content directory and the Configuration Manager package source will result in incorrect files being removed from the WSUS content directory.
 
 ####  <a name="BKMK_CustomWebSite"></a> Configure WSUS to use a custom website  
 When you install WSUS, you have the option to use the existing IIS Default website, or to create a custom WSUS website. Create a custom website for WSUS so that IIS hosts the WSUS services in a dedicated virtual website. Otherwise it shares the same website that's used by the other Configuration Manager site systems or applications. This configuration is especially necessary when you install the software update point role on the site server. When you run WSUS in Windows Server 2012 or later, WSUS is configured by default to use port 8530 for HTTP and port 8531 for HTTPS. Specify these ports when you create the software update point at a site.  
@@ -292,7 +256,7 @@ When a WSUS server is configured as a software update point, you're no longer ab
 When you add the software update point role on a primary site server, you can't use a WSUS server that's configured as a replica. When the WSUS server is configured as a replica, Configuration Manager fails to configure the WSUS server, and the WSUS synchronization fails. The first software update point that you install at a primary site is the default software update point. Additional software update points at the site are configured as replicas of the default software update point.  
 
 ####  <a name="BKMK_WSUSandSSL"></a> Decide whether to configure WSUS to use SSL  
-Use the SSL protocol to help secure the software update point. WSUS uses SSL to authenticate client computers and downstream WSUS servers to the WSUS server. WSUS also uses SSL to encrypt software update metadata. When you choose to secure WSUS with SSL, prepare the WSUS server before you install the software update point. For more information, see the [Configure SSL on the WSUS server](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/2-configure-wsus#bkmk_2.5.ConfigSSL) article in the documentation for WSUS. 
+Use the SSL protocol to help secure the software update point. WSUS uses SSL to authenticate client computers and downstream WSUS servers to the WSUS server. WSUS also uses SSL to encrypt software update metadata. When you choose to secure WSUS with SSL, prepare the WSUS server before you install the software update point. For more information, see the [Configure SSL on the WSUS server](/windows-server/administration/windows-server-update-services/deploy/2-configure-wsus#25-secure-wsus-with-the-secure-sockets-layer-protocol) article in the documentation for WSUS. 
 
 When you install and configure the software update point, select the option to **Enable SSL communications for the WSUS Server**. Otherwise, Configuration Manager configures WSUS not to use SSL. When you enable SSL on a software update point, also configure any software update points at child sites to use SSL.  
 
@@ -310,44 +274,10 @@ The connection to Microsoft Update is always configured to use port 80 for HTTP 
 
 
 #### Restrict access to specific domains  
-If your organization doesn't allow the ports and protocols to be open to all addresses on the firewall between the active software update point and the internet, restrict access to the following domains so that WSUS and Automatic Updates can communicate with Microsoft Update:  
 
--   `http://windowsupdate.microsoft.com`  
+If your organization restricts network communication with the internet using a firewall or proxy device, you need to allow the active software update point to access internet endpoints. Then WSUS and Automatic Updates can communicate with the Microsoft Update cloud service.
 
--   `http://*.windowsupdate.microsoft.com`  
-
--   `https://*.windowsupdate.microsoft.com`  
-
--   `http://*.update.microsoft.com`  
-
--   `https://*.update.microsoft.com`  
-
--   `http://*.windowsupdate.com`  
-
--   `http://download.windowsupdate.com`  
-
--   `http://download.microsoft.com`  
-
--   `http://*.download.windowsupdate.com`  
-
--   `http://test.stats.update.microsoft.com`  
-
--   `http://ntservicepack.microsoft.com`  
-
-You might need to add the addresses below to the firewall that's located between the two site systems in the following cases: 
-- If child sites have a software update point 
-- If there is a remote active internet-based software update point at a site
-
-  **Software update point on the child site**  
-
-- `http://<FQDN for software update point on child site>`  
-
-- `https://<FQDN for software update point on child site>`  
-
-- `http://<FQDN for software update point on parent site>`  
-
-- `https://<FQDN for software update point on parent site>`  
-
+For more information, see [Internet access requirements](/sccm/core/plan-design/network/internet-endpoints#bkmk_sum).
 
 
 ##  <a name="BKMK_SyncSettings"></a> Plan for synchronization settings  
@@ -359,6 +289,7 @@ This section includes the following subtopics:
 - [Products](#BKMK_UpdateProducts)
 - [Supersedence rules](#BKMK_SupersedenceRules)
 - [Languages](#BKMK_UpdateLanguages)  
+- [Maximum run time](#bkmk_maxruntime)
 
 
 Software updates synchronization in Configuration Manager downloads the software updates metadata based on criteria that you configure. The top-level site in your hierarchy synchronizes software updates from Microsoft Update. You have the option to configure the software update point on the top-level site to synchronize with an existing WSUS server, not in the Configuration Manager hierarchy. The child primary sites synchronize software updates metadata from the software update point on the central administration site. Before you install and configure a software update point, use this section to plan for the synchronization settings.  
@@ -464,6 +395,8 @@ Configure languages for the **Software update file** setting in the properties f
 
 Configure the software update file language settings with the languages that are most often used in your environment. For example, clients in your site use mostly English and Japanese for Windows or applications. There are few other languages that are used at the site. Select only English and Japanese in the **Software Update File** column when you download or deploy the software update. This action allows you to use the default settings on the **Language Selection** page of the deployment and download wizards. This action also prevents unneeded update files from being downloaded. Configure this setting at each software update point in the Configuration Manager hierarchy.  
 
+
+
 #### Summary details  
 During the synchronization process, the summary details information (software updates metadata) is updated for software updates in the languages that you specify. The metadata provides information about the software update, for example:
 - Name
@@ -477,9 +410,35 @@ During the synchronization process, the summary details information (software up
 Configure the summary details settings only on the top-level site. The summary details aren't configured on the software update point on child sites because the software updates metadata is replicated from the central administration site by using file-based replication. When you select the summary details languages, select only the languages that you need in your environment. The more languages that you select, the longer it takes to synchronize the software updates metadata. Configuration Manager displays the software updates metadata in the locale of the OS in which the Configuration Manager console runs. If the localized properties for the software updates aren't available in the locale of this OS, the software updates information displays in English.  
 
 > [!IMPORTANT]  
->  Select all of the summary details languages that you need. When the software update point at the top-level site synchronizes with the synchronization source, the selected summary details languages determine the software updates metadata that it retrieves. If you modify the summary details languages after synchronization ran at least one time, it retrieves the software updates metadata for the modified summary details languages only for new or updated software updates. The software updates that have already been synchronized aren't updated with new metadata for the modified languages unless there's a change to the software update on the synchronization source.  
+>  Select all of the summary details languages that you need. When the software update point at the top-level site synchronizes with the synchronization source, the selected summary details languages determine the software updates metadata that it retrieves. If you modify the summary details languages after synchronization ran at least one time, it retrieves the software updates metadata for the modified summary details languages only for new or updated software updates. The software updates that have already been synchronized aren't updated with new metadata for the modified languages unless there's a change to the software update on the synchronization source.
 
 
+###  <a name="bkmk_maxruntime"></a> Maximum run time
+<!--3734426-->
+*(Introduced in version 1906)*
+
+Starting in version 1906, you can specify the maximum amount of time a software update installation has to complete. You can specify the maximum run time for the following:
+
+- **Maximum run time for Windows feature updates (minutes)**
+  - **Feature updates** - An update that is in one of these three classifications:
+    - Upgrades
+    - Update rollups
+    - Service packs
+
+- **Maximum run time for Office 365 updates and non-feature updates for Windows (minutes)**
+  - **Non-feature updates** - An update that isn't a feature upgrade and whose product is listed as one of the following:
+    - Windows 10 (all versions)
+    - Windows Server 2012
+    - Windows Server 2012 R2
+    - Windows Server 2016
+    - Windows Server 2019
+    - Office 365
+
+- These settings only change the maximum runtime for new updates that are synchronized from Microsoft Update. It doesn't change the run time on existing feature or non-feature updates.
+- All other products and classifications are not configurable with this setting. If you need to change the maximum run time of one of these updates, [configure the software update settings](/sccm/sum/get-started/manage-settings-for-software-updates#BKMK_SoftwareUpdatesSettings)
+
+> [!NOTE]
+> In version 1906, the maximum runtime isn't available when you install the top-level software update point. After installation, edit the maximum run time on your top-level software update point.
 
 ##  <a name="BKMK_MaintenanceWindow"></a> Plan for a software updates maintenance window  
 
@@ -494,7 +453,7 @@ For more information about maintenance windows, see [How to use maintenance wind
 
 When a software update that requires a restart is deployed and installed using Configuration Manager, the client schedules a pending restart and displays a restart dialog box.
 
-When there's a pending restart for a Configuration Manager software update, the option to **Update and Restart** and **Update and Shutdown** is available on Windows 10 computers in the Windows power options. After using one of these options, the restart dialog doesn't display after the computer restarts.
+When there's a pending restart for a Configuration Manager software update, the option to **Update and Restart** and **Update and Shutdown** is available on Windows 10 computers in the Windows power options. After using one of these options, the restart dialog doesn't display after the computer restarts. In certain circumstances, the operating system may remove the pending restart options. This can happen if the Fast Startup feature in Windows 10 is enabled. For more information, see [Updates may not be installed with Fast Startup in Windows 10](https://support.microsoft.com/help/4011287/windows-updates-not-install-with-fast-startup).
 
 
 

@@ -2,13 +2,13 @@
 title: "Publish site data"
 titleSuffix: "Configuration Manager"
 description: "Learn how to publish Configuration Manager sites to Active Directory Domain Services."
-ms.date: 2/7/2017
+ms.date: 02/7/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
 ms.assetid: 17cf034f-eaff-43ce-bc8e-917213c1db74
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---

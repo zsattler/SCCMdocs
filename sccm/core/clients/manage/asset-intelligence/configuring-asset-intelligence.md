@@ -2,13 +2,13 @@
 title: "Configure Asset Intelligence"
 titleSuffix: "Configuration Manager"
 description: "Set up Asset Intelligence in System Center Configuration Manager."
-ms.date: 2/22/2017
+ms.date: 02/22/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
 ms.assetid: 08e0382d-de05-4a76-ba5c-7223173f7066
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---
@@ -134,7 +134,7 @@ In addition to downloading new Asset Intelligence catalog information, the Asset
 4.  On the **Import** page, specify whether you are importing a Microsoft Volume Licensing (MVLS) file (.xml or .csv) or a General License Statement file (.csv). For more information about creating a General License Statement file, see [Create a general license statement information file for import](#BKMK_CreateGeneralLicenseStatement) later in this topic.  
 
     > [!WARNING]  
-    >  To download an MVLS file in .csv format that you can import to the Asset Intelligence catalog, see [Microsoft Volume Licensing Service Center](http://go.microsoft.com/fwlink/p/?LinkId=226547). To access this information, you must have a registered account on the website. You must contact your Microsoft account representative for information about how to get your MVLS file in .xml format.  
+    >  To download an MVLS file in .csv format that you can import to the Asset Intelligence catalog, see [Microsoft Volume Licensing Service Center](https://go.microsoft.com/fwlink/p/?LinkId=226547). To access this information, you must have a registered account on the website. You must contact your Microsoft account representative for information about how to get your MVLS file in .xml format.  
 
 5.  Enter the UNC path to the license statement file or choose **Browse** to select a network shared folder and file.  
 
@@ -214,7 +214,7 @@ Asset Intelligence matches the products that you specify in the general license 
 
 4.  On the **Home** tab, in the **Settings** group, choose **Site Maintenance**. Select a task, and choose **Edit** to modify the settings. 
 
-  	We recommend that you set the time period to off-peak hours of the site. The time period is the time interval in which the task can run. It is defined by the **Start after** and **Latest start time** specified in the **Task Properties** dialog box.  
+    We recommend that you set the time period to off-peak hours of the site. The time period is the time interval in which the task can run. It is defined by the **Start after** and **Latest start time** specified in the **Task Properties** dialog box.  
 
     You can initiate the task right away by selecting the current day and setting the **Start after** time to a couple minutes after the present time.  
 

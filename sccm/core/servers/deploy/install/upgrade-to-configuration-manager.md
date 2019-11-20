@@ -1,18 +1,19 @@
 ---
-title: Upgrade to Configuration Manager
+title: Upgrade to current branch
+titleSuffix: Configuration Manager
 description: Learn the steps for running a successful in-place upgrade from a site and hierarchy that runs System Center 2012 Configuration Manager.
-ms.date: 03/27/2019
+ms.date: 08/16/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
 ms.assetid: c64e7483-b4bb-4738-95f4-ecdaeb6a2ba6
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---
 
-# Upgrade to Configuration Manager
+# Upgrade to Configuration Manager current branch
 
 *Applies to: System Center Configuration Manager (Current Branch)*
 
@@ -30,7 +31,7 @@ The following options are the currently supported in-place upgrade paths:
 
 ### Upgrade to version 1902
 
-When you have version 1902 baseline media, you can upgrade the following to a fully licensed version of System Center Configuration Manager version 1902:   
+You can upgrade the following to a fully licensed version of System Center Configuration Manager version 1902:   
 - An evaluation install of System Center Configuration Manager version 1902
 - System Center 2012 Configuration Manager with Service Pack 1
 - System Center 2012 Configuration Manager with Service Pack 2
@@ -38,28 +39,14 @@ When you have version 1902 baseline media, you can upgrade the following to a fu
 - System Center 2012 R2 Configuration Manager with Service Pack 1
 
 ### Upgrade to version 1802
-When you have version 1802 baseline media, you can upgrade the following to a fully licensed version of System Center Configuration Manager version 1802:   
+You can upgrade the following to a fully licensed version of System Center Configuration Manager version 1802:   
 - An evaluation install of System Center Configuration Manager version 1802
 - System Center 2012 Configuration Manager with Service Pack 1
 - System Center 2012 Configuration Manager with Service Pack 2
 - System Center 2012 R2 Configuration Manager
 - System Center 2012 R2 Configuration Manager with Service Pack 1
 
-### Upgrade to version 1606
-On December 15, 2016, the baseline media for version 1606 was rereleased to add support for additional upgrade scenarios. This version supports upgrading from the following versions to a fully licensed version of System Center Configuration Manager version 1606:  
-- An evaluation install of System Center Configuration Manager version 1606
-- A release candidate install of System Center Configuration Manager  
-- System Center 2012 Configuration Manager with Service Pack 1  
-- System Center 2012 Configuration Manager with Service Pack 2  
-- System Center 2012 R2 Configuration Manager with no service pack
-- System Center 2012 R2 Configuration Manager with Service Pack 1  
-
-If you use version 1606 baseline media downloaded earlier than December 15, 2016, you can upgrade only the following to a fully licensed version of System Center Configuration Manager version 1606:
-- An evaluation install of System Center Configuration Manager version 1606
-- System Center 2012 Configuration Manager with Service Pack 2
-- System Center 2012 R2 Configuration Manager with Service Pack 1
-
-For more information on the use of version 1606, see [Frequently asked questions for Configuration Manager branches and licensing](/sccm/core/understand/product-and-licensing-faq).
+For more information, see [Frequently asked questions for Configuration Manager branches and licensing](/sccm/core/understand/product-and-licensing-faq).
 
 > [!TIP]  
 >  When you upgrade from a System Center 2012 Configuration Manager version to Current Branch, you might be able to streamline your upgrade process. For more information, see the following:  
@@ -127,7 +114,7 @@ Configuration Manager can't upgrade a primary site that has a database replica f
 
 For more information, see the following articles:  
 
-- System Center 2012 Configuration Manager: [Configure database replicas for management points](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh846234\(v=technet.10))  
+- System Center 2012 Configuration Manager: [Configure database replicas for management points](/sccm/core/servers/deploy/configure/database-replicas-for-management-points#BKMK_DBReplica_Config)  
 
 - Configuration Manager, current branch: [Database replicas for management points](/sccm/core/servers/deploy/configure/database-replicas-for-management-points)  
 
@@ -149,7 +136,7 @@ Before you disable a task, record the schedule of the task so you can restore it
 
 For more information about site maintenance tasks, see the following articles:  
 
-- System Center 2012 Configuration Manager: [Planning for site operations](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/gg712686\(v=technet.10))  
+- System Center 2012 Configuration Manager: [Planning for site operations](/sccm/core/plan-design/hierarchy/plan-for-the-site-database)  
 
 - Configuration Manager, current branch: [Reference for maintenance tasks](/sccm/core/servers/manage/reference-for-maintenance-tasks)  
 

@@ -6,10 +6,10 @@ ms.prod: configuration-manager
 ms.technology: configmgr-protect
 ms.topic: conceptual
 ms.assetid: a34d9401-83e4-471d-8e23-b8042fc11c90
-author: aczechowski
+author: mestew
+ms.author: mstewart
 description: Learn how to configure Windows Server Updates Services to auto-approve definition updates.
 manager: dougeby
-ms.author: aaroncz
 ms.collection: M365-identity-device-management
 ---
 
@@ -87,7 +87,7 @@ ms.collection: M365-identity-device-management
 10. In the **Automatic Approvals** dialog box, select the check box for the newly created rule and then click **Run rule**.
 
 > [!NOTE]
->  To maximize performance on your WSUS server and client computers, decline old definition updates. To accomplish this task, you can configure automatic approval for revisions and automatic declining of expired updates. For more information, see [Microsoft Knowledge Base article 938947](http://go.microsoft.com/fwlink/p/?LinkId=204078).
+>  To maximize performance on your WSUS server and client computers, decline old definition updates. To accomplish this task, you can configure automatic approval for revisions and automatic declining of expired updates. For more information, see [Microsoft Knowledge Base article 938947](https://go.microsoft.com/fwlink/p/?LinkId=204078).
 > 
 > [!div class="button"]
 > [Next step >](endpoint-antimalware-policies.md)

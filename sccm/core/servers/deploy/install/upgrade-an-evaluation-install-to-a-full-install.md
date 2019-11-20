@@ -2,13 +2,13 @@
 title: "Upgrade evaluation installs"
 titleSuffix: "Configuration Manager"
 description: "Learn how to upgrade an evaluation installation to a full installation of System Center Configuration Manager."
-ms.date: 2/7/2017
+ms.date: 02/7/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
 ms.assetid: 9a32f5a3-9917-434f-9811-106170f404be
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
 ms.collection: M365-identity-device-management
 ---
